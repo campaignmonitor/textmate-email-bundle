@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>deleted</key>
+	<array/>
+	<key>mainMenu</key>
+	<dict>
+		<key>items</key>
+		<array>
+			<string>07070346-4956-4C9E-A3C2-E848CE70BB00</string>
+			<string>2E553FDA-174E-47FA-A69B-406CA12A73C5</string>
+			<string>08CBA36C-6AAA-48EC-9A5F-340D17D894E6</string>
+			<string>00A5C24D-8E5C-47B6-8457-2F9DA56A4235</string>
+		</array>
+		<key>submenus</key>
+		<dict/>
+	</dict>
+	<key>name</key>
+	<string>Email Tester</string>
+	<key>ordering</key>
+	<array>
+		<string>07070346-4956-4C9E-A3C2-E848CE70BB00</string>
+		<string>2E553FDA-174E-47FA-A69B-406CA12A73C5</string>
+		<string>00A5C24D-8E5C-47B6-8457-2F9DA56A4235</string>
+		<string>F9622AB8-BE5A-47AF-9176-8CC22CBEA595</string>
+	</array>
+	<key>uuid</key>
+	<string>9CDA56E7-2346-44EB-81F3-F01395746C71</string>
+</dict>
+</plist>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string># This requires that 'enable access for assistive devices' is enabled
+# To use this script you need to install 4 extra gems.
+# gem install mailfactory
+# gem install tlsmail
+# gem install hpricot
+# gem install tamtam
+
+to=$(CocoaDialog inputbox --title "Send an email to..." \
+    --informative-text "Who should I email?" \
+    --button1 "Make it so ☛" --button2 "Cancel")
+[[ $(head -n1 &lt;&lt;&lt;"$to") == "2" ]] &amp;&amp; exit_discard
+
+###
+# Setup your mailing options
+###
+from=tester@abcwidgets.com
+to=$(tail -n1 &lt;&lt;&lt;"$to")
+server=smtp.gmail.com
+port=587
+ssl=true
+username=email@gmail.com
+password=yourpassword
+
+# Create a temporary file so that this works with unsaved documents
+TM_TMPFILE="$(mktemp /tmp/tm_email_tester_XXXXXX).html" || exit
+cat   &gt;"$TM_TMPFILE"
+
+###
+# Run emailing script
+###
+ruby "$TM_BUNDLE_SUPPORT/lib/email.rb" $from $to $server $port $ssl "$TM_TMPFILE" $username $password
+
+# Remove Temporary file
+rm -f "$TM_TMPFILE" "${TM_TMPFILE%.html}"</string>
+	<key>fallbackInput</key>
+	<string>document</string>
+	<key>input</key>
+	<string>document</string>
+	<key>keyEquivalent</key>
+	<string>~D</string>
+	<key>name</key>
+	<string>Email page to... (bring CSS inline)</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>07070346-4956-4C9E-A3C2-E848CE70BB00</string>
+</dict>
+</plist>

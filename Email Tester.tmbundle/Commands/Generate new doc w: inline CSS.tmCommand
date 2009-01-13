@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+ 
+require 'rubygems'
+require 'tamtam'
+require 'hpricot'
+
+html_doc = STDIN.read
+
+stylesheet = html_doc.match(/href=[\"']?([^&gt; \"']*.css)/i).to_a[1]
+
+if stylesheet.nil?
+   puts TamTam.inline(:document =&gt; html_doc)
+else
+   puts TamTam.inline(
+      :css =&gt; File.read("#{ENV['TM_DIRECTORY']}/#{stylesheet}"),
+      :body =&gt; html_doc
+   )
+end</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>Generate new doc w/ inline CSS</string>
+	<key>output</key>
+	<string>openAsNewDocument</string>
+	<key>uuid</key>
+	<string>00A5C24D-8E5C-47B6-8457-2F9DA56A4235</string>
+</dict>
+</plist>
