@@ -40,7 +40,7 @@ mail = MailFactory.new()
 mail.to = "#{to}"
 mail.from = "#{from}"
 mail.subject = "#{title}"
-mail.html = "#{html}"
+mail.rawhtml = "#{html}"
 mail.text = "This is the plain text version."
 
 if ssl == "false"
